@@ -1204,8 +1204,8 @@ if (isset($_POST['delete'])) {
 	if ($config['try_smarter'] && $post['op'])
 		$build_pages = range(1, $config['max_pages']);
 	
-	if ($post['op'])
-		clean($id);
+	if ($post['op'] && $config['no_purge'] === false)
+			clean($id);
 	
 	event('post-after', $post);
 	
